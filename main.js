@@ -13,7 +13,7 @@ const pets = [
       color: "Brown",
       specialSkill: "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
       type: "dino",
-      imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg",
+      imageUrl: "https://dinoxp.com/wp-content/uploads/2020/03/dinort.png",
     },
     {
       id: 3,
@@ -240,3 +240,23 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+//Link to HTML
+const targetingApp = document.querySelector(".petAdopt");
+let domString ="";
+
+//Iterations 
+for(const pet of pets){
+  domString += `<div class="card" style="width: 18rem;">
+  <img src="${pet.imageUrl}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${pet.name}</h5>
+    <p class="card-text">${pet.specialSkill}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Color: ${pet.color}</li>
+    <li class="list-group-item">Type:${pet.type}</li>
+  </ul>
+</div>`;
+}
+
+targetingApp.innerHTML= domString;
