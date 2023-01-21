@@ -240,12 +240,20 @@ const pets = [
       imageUrl: "https://people.com/thmb/5KDao-j60iIjmK-Ds1zgnjUuuas=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/t-rex-2000-fa6c6f21c38249b4995cbf21cb5fe5ed.jpg"
     }
   ];
-//Link to HTML
-const targetingApp = document.querySelector(".petAdopt");
-let domString ="";
 
-//Iterations 
-for(const pet of pets){
+  //PART 3 
+//functions to the filter buttons (Send to DOM Utility function) //
+ const sendToDom=(divId, htmlToSend)=>{
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML=htmlToSend
+ }
+
+//Link to HTML
+//const targetingApp = document.querySelector(".petAdopt");
+const cardsOnDom=(array)=>{
+let domString ="";
+//PART 2Iterations 
+for(const pet of array){
   domString += `<div class="card" style="width: 18rem;">
   <div class="img"> 
   <img src="${pet.imageUrl}" class="card-img-top" alt="...">
@@ -260,5 +268,40 @@ for(const pet of pets){
   </ul>
 </div>`;
 }
+  sendToDom("#app",domString)
+}
+//targetingApp.innerHTML= domString;
 
-targetingApp.innerHTML= domString;
+
+
+
+ //function to filter
+ const filter = (array, typeString)=>{
+  const typeArray = []
+ for (const pet of array) {
+  if (pet.type === typeString) {
+    typeArray.push(pet);
+  }
+}
+return typeArray;
+};
+
+//Target buttons
+const showCatsbtn = document.querySelector("#showCats");
+const showDogsbtn = document.querySelector("#showDogs");
+const showDinosbtn = document.querySelector("#showDinos")
+
+showCatsbtn.addEventListener("click", ()=>{ 
+  const catsType= filter(pets, "cat");
+  cardsOnDom(catsType);
+})
+
+showDogsbtn.addEventListener("click", ()=>{ 
+  const dogsType= filter(pets, "dog");
+  cardsOnDom(dogsType);
+})
+
+showDinosbtn.addEventListener("click", ()=>{ 
+  const dinosType= filter(pets, "dino");
+  cardsOnDom(dinosType);
+})
