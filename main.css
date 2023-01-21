@@ -8,3 +8,22 @@
     width: 100%;
     margin-bottom: 10%;
 }
+.categories{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding: 20px;
+    font-size: 20px;
+}    
+.category1{
+    background-color: aqua; 
+}
+
+.category2{
+    background-color: greenyellow;
+}
+.category3{
+    background-color: orange;
+}
