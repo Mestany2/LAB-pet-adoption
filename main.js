@@ -242,14 +242,17 @@ const pets = [
   ];
 
   //PART 3 
-//functions to the filter buttons (Send to DOM Utility function) //
+//Function to select a div and show items in (Select an area, send this) //
  const sendToDom=(divId, htmlToSend)=>{
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML=htmlToSend
  }
 
-//Link to HTML
-//const targetingApp = document.querySelector(".petAdopt");
+
+// (Ignore)const targetingApp = document.querySelector(".petAdopt");
+
+//Function to creat a card for each pet, assing them to domString variable.
+// Send to dom function would send domString cards to view in a HTML id app
 const cardsOnDom=(array)=>{
 let domString ="";
 //PART 2Iterations 
@@ -272,9 +275,6 @@ for(const pet of array){
 }
 //targetingApp.innerHTML= domString;
 
-
-
-
  //function to filter
  const filter = (array, typeString)=>{
   const typeArray = []
@@ -286,10 +286,14 @@ for(const pet of array){
 return typeArray;
 };
 
+
+
 //Create a variable to target each button in HTML
 const showCatsbtn = document.querySelector("#showCats");
 const showDogsbtn = document.querySelector("#showDogs");
 const showDinosbtn = document.querySelector("#showDinos")
+
+
 
 
 //Set the buttons to the filtered value
@@ -310,3 +314,4 @@ showDinosbtn.addEventListener("click", ()=>{
   //After you filter, show the filtered cards on the DOM
   cardsOnDom(dinosType);
 })
+
