@@ -286,22 +286,27 @@ for(const pet of array){
 return typeArray;
 };
 
-//Target buttons
+//Create a variable to target each button in HTML
 const showCatsbtn = document.querySelector("#showCats");
 const showDogsbtn = document.querySelector("#showDogs");
 const showDinosbtn = document.querySelector("#showDinos")
 
+
+//Set the buttons to the filtered value
 showCatsbtn.addEventListener("click", ()=>{ 
   const catsType= filter(pets, "cat");
+//After you filter, show the filtered cards on the DOM
   cardsOnDom(catsType);
 })
 
 showDogsbtn.addEventListener("click", ()=>{ 
   const dogsType= filter(pets, "dog");
+//After you filter, show the filtered cards on the DOM
   cardsOnDom(dogsType);
 })
 
 showDinosbtn.addEventListener("click", ()=>{ 
   const dinosType= filter(pets, "dino");
+  //After you filter, show the filtered cards on the DOM
   cardsOnDom(dinosType);
 })

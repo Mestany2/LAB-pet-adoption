@@ -1,3 +1,14 @@
+.title{
+   display: flex;
+   justify-content: center;
+   font-family: cursive;
+   font-size: 80px;
+   padding: 50px;
+   border: 12px solid lime;
+
+   
+}
+
 .petAdopt{
     display: flex;
     flex-direction: row;
@@ -19,11 +30,26 @@
 }    
 .category1{
     background-color: aqua; 
+    font-size: 26px;
+    padding: 12px 28px;
+    border-radius:13px;
+    border: 5px solid gainsboro;
+    font-family:fantasy;  
 }
 
 .category2{
     background-color: greenyellow;
+    font-size: 26px;
+    padding: 12px 28px;
+    border-radius:13px;
+    border: 5px solid gainsboro;
+    font-family:fantasy;
 }
 .category3{
     background-color: orange;
+    font-size: 26px;
+    padding: 12px 28px;
+    border-radius:13px;
+    border: 5px solid gainsboro;
+    font-family:fantasy;
 }
