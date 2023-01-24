@@ -268,17 +268,20 @@ for(const pet of array){
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Color: ${pet.color}</li>
     <li class="list-group-item">Type: ${pet.type}</li>
-  </ul>
+    </ul>
+    <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
 </div>`;
 }
   sendToDom("#app",domString)
 }
-//targetingApp.innerHTML= domString;
+
+cardsOnDom(pets)
 
  //function to filter
  const filter = (array, typeString)=>{
   const typeArray = []
  for (const pet of array) {
+  //If the pet typ match the specified type, then add it in the new array
   if (pet.type === typeString) {
     typeArray.push(pet);
   }
@@ -315,3 +318,42 @@ showDinosbtn.addEventListener("click", ()=>{
   cardsOnDom(dinosType);
 })
 
+//Get all the values from the form
+const createPet =(event)=>{
+  event.preventDefault();
+//grab the value from each field
+  const name=document.querySelector("#name")
+  const color = document.querySelector("#color");
+  const specialSkill = document.querySelector("#specialSkill");
+  const type = document.querySelector("#type");
+  const image = document.querySelector("#image");
+//Put them all in an array
+  const newPet={
+    name:name.value,
+  color:color.value,
+  specialSkill: specialSkill.value,
+  type:type.value,
+  image:image.value,
+};
+//add it to the the main array
+pets.push(newPet);
+//show it on the DOM
+cardsOnDom(pets);
+}
+//When the button is click, pass the info to the function
+const submitButton = document.querySelector("#form-submit");
+submitButton.addEventListener("click", createPet);
+
+
+
+//Delete button- Target the app div
+const appDiv=document.querySelector("#app");
+//Capture the clicks
+appDiv.addEventListener("click", (event)=>{
+  if (event.target.id.includes("delete")){
+    const[nothing, petId]= event.target.id.split("--");
+    const indexOfPets= pets.findIndex((obj)=> obj.id === Number(petId));
+    pets.splice(indexOfPets, 1);
+  }
+  cardsOnDom(pets);
+})
