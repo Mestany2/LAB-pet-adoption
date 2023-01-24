@@ -343,3 +343,17 @@ cardsOnDom(pets);
 //When the button is click, pass the info to the function
 const submitButton = document.querySelector("#form-submit");
 submitButton.addEventListener("click", createPet);
+
+
+
+//Delete button- Target the app div
+const appDiv=document.querySelector("#app");
+//Capture the clicks
+appDiv.addEventListener("click", (event)=>{
+  if (event.target.id.includes("delete")){
+    const[nothing, petId]= event.target.id.split("--");
+    const indexOfPets= pets.findIndex((obj)=> obj.id === Number(petId));
+    pets.splice(indexOfPets, 1);
+  }
+  cardsOnDom(pets);
+})
