@@ -274,7 +274,8 @@ for(const pet of array){
 }
   sendToDom("#app",domString)
 }
-//targetingApp.innerHTML= domString;
+
+cardsOnDom(pets)
 
  //function to filter
  const filter = (array, typeString)=>{
@@ -318,24 +319,27 @@ showDinosbtn.addEventListener("click", ()=>{
 })
 
 //Get all the values from the form
-const creatPet =(event)=>{
+const createPet =(event)=>{
   event.preventDefault();
 //grab the value from each field
-const name=document.querySelector("#name")
-const color = document.querySelector("#color");
-const specialSkill = document.querySelector("#specialSkill");
-const type = document.querySelector("#type");
-const image = document.querySelector("#image");
+  const name=document.querySelector("#name")
+  const color = document.querySelector("#color");
+  const specialSkill = document.querySelector("#specialSkill");
+  const type = document.querySelector("#type");
+  const image = document.querySelector("#image");
 //Put them all in an array
-const newPet={
-  name:name.value
-  color:color.value
-  specialSkill: specialSkill.value
-  type:type.value
-  image:image.value
+  const newPet={
+    name:name.value,
+  color:color.value,
+  specialSkill: specialSkill.value,
+  type:type.value,
+  image:image.value,
 };
 //add it to the the main array
 pets.push(newPet);
 //show it on the DOM
 cardsOnDom(pets);
 }
+//When the button is click, pass the info to the function
+const submitButton = document.querySelector("#form-submit");
+submitButton.addEventListener("click", createPet);
