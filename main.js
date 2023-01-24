@@ -268,7 +268,8 @@ for(const pet of array){
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Color: ${pet.color}</li>
     <li class="list-group-item">Type: ${pet.type}</li>
-  </ul>
+    </ul>
+    <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
 </div>`;
 }
   sendToDom("#app",domString)
@@ -279,6 +280,7 @@ for(const pet of array){
  const filter = (array, typeString)=>{
   const typeArray = []
  for (const pet of array) {
+  //If the pet typ match the specified type, then add it in the new array
   if (pet.type === typeString) {
     typeArray.push(pet);
   }
@@ -315,3 +317,25 @@ showDinosbtn.addEventListener("click", ()=>{
   cardsOnDom(dinosType);
 })
 
+//Get all the values from the form
+const creatPet =(event)=>{
+  event.preventDefault();
+//grab the value from each field
+const name=document.querySelector("#name")
+const color = document.querySelector("#color");
+const specialSkill = document.querySelector("#specialSkill");
+const type = document.querySelector("#type");
+const image = document.querySelector("#image");
+//Put them all in an array
+const newPet={
+  name:name.value
+  color:color.value
+  specialSkill: specialSkill.value
+  type:type.value
+  image:image.value
+};
+//add it to the the main array
+pets.push(newPet);
+//show it on the DOM
+cardsOnDom(pets);
+}
